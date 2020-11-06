@@ -17,7 +17,7 @@ public class PlayerPlatformerController : PhysicsObject, IPlayerActions
     private SpriteRenderer _spriteRenderer;
 
     public PlayerInput playerInput;
-    private Animator playerAnimator;
+    // public Animator playerAnimator;
 
     #region Unity Events
     
@@ -31,7 +31,8 @@ public class PlayerPlatformerController : PhysicsObject, IPlayerActions
 
     private void OnJump(InputValue value)
     {
-        playerAnimator.SetTrigger("Attack");
+        // see ComputeVelocity to refactor for new system.
+        // playerAnimator.SetTrigger("Jump");
     }
 
 
