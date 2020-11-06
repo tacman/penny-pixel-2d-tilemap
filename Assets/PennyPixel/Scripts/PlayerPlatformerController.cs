@@ -1,5 +1,8 @@
 ﻿using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class PlayerPlatformerController : PhysicsObject, IPlayerActions
 {
@@ -13,7 +16,25 @@ public class PlayerPlatformerController : PhysicsObject, IPlayerActions
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
 
+    public PlayerInput playerInput;
+    private Animator playerAnimator;
+
     #region Unity Events
+    
+    private void OnMovement(InputValue value)
+    {
+        Vector2 inputMovement = value.Get<Vector2>();
+        Debug.Log(inputMovement.x);
+        
+        // inputDirection = new Vector3(inputMovement.x, 0, inputMovement.y);
+    }
+
+    private void OnJump(InputValue value)
+    {
+        playerAnimator.SetTrigger("Attack");
+    }
+
+
     
     // Use this for initialization
     private void Awake()

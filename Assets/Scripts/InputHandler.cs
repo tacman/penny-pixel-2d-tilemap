@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
+
 
 public class InputHandler : MonoBehaviour
 {
@@ -12,6 +16,8 @@ public class InputHandler : MonoBehaviour
     
     private bool _jump;
     private float _lastJumpTime;
+    
+    public PlayerInput playerInput;
 
     [SerializeField] private float maxJumpDuration = 0.2f;
     [SerializeField] private bool isMobile = true;
@@ -31,6 +37,7 @@ public class InputHandler : MonoBehaviour
             return Mathf.Abs(_horizontalCurrent) < Dead ? 0f : _horizontalCurrent;
         }
     }
+    
 
     /// <summary>
     /// Jump Button Down. Determine if the jump button is currently down.
@@ -86,6 +93,7 @@ public class InputHandler : MonoBehaviour
     #endregion
 
     #region Lifecycle Methods
+
 
     private void Update()
     {
